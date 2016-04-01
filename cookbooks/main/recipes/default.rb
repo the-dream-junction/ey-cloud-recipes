@@ -57,7 +57,8 @@
 
 #uncomment to add specified cron jobs for application user (deploy)
 # You must add your cron jobs to cron/attributes/cron.rb
-#require_recipe "cron"
+require_recipe "cron"
+include_recipe "timezone"
 
 #uncomment to run the exim::auth recipe
 #include_recipe "exim::auth"
@@ -81,7 +82,7 @@
 #uncomment to run the api-keys-yml recipe
 # include_recipe "api-keys-yml"
 
-#include_recipe "logrotate"
+include_recipe "logrotate"
 #
 #uncomment to use the solr recipe
 #include_recipe "solr"
