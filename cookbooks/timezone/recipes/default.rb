@@ -1,7 +1,7 @@
 # Add your required timezone name here:
 # If using JRuby with Trinidad, you must also modify the env.custom file with the desired timezone
 # ex: add_java_option -Duser.timezone=UTC
-timezone = "Pacific"
+timezone = "US/Pacific"
 
 
 service "vixie-cron"
