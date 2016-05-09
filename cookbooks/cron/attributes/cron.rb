@@ -1,7 +1,8 @@
 # Add one hash per cron job required
 # Set the utility instance name to install each cron job on via instance_name
 
-default[:custom_crons] = [{:name => "deco_orders", :time => "35 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake import:deco_orders", :instance_name => "worker1"},
+default[:custom_crons] = [{:name => "woocommerce_orders", :time => "40 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake import:woocommerce_orders", :instance_name => "worker1"},
+                          {:name => "deco_orders", :time => "35 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake import:deco_orders", :instance_name => "worker1"},
                           {:name => "maker_shopify_orders_monday", :time => "00 12,13,14,15,16,17,18 * * 1", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake import:maker_shopify_orders", :instance_name => "worker1"},
                           {:name => "maker_shopify_orders_weekdays", :time => "25 * * * 2-5", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake import:maker_shopify_orders", :instance_name => "worker1"},
                           {:name => "represent_shopify_orders_monday", :time => "10 12,13,14,15,16,17,18 * * 1", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake import:represent_shopify_orders", :instance_name => "worker1"},
@@ -34,6 +35,7 @@ default[:custom_crons] = [{:name => "deco_orders", :time => "35 * * * *", :comma
                           {:name => "maker_shipments", :time => "18,48 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake notify:maker_shipments", :instance_name => "worker1"},
                           {:name => "shopify_shipments", :time => "19,49 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake notify:shopify_shipments", :instance_name => "worker1"},
                           {:name => "rep_athletics_shipments", :time => "20,50 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake notify:rep_athletics_shipments", :instance_name => "worker1"},
+                          {:name => "woocommerce_shipments", :time => "21,51 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake notify:woocommerce_shipments", :instance_name => "worker1"},
                           {:name => "dhl_claims_report", :time => "45 9 * * 1-5", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake notify:dhl_claims_report", :instance_name => "worker1"},
                           {:name => "packaged_not_shipped_report", :time => "30 5 * * 1-5", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake notify:packaged_not_shipped_report", :instance_name => "worker1"},
                           {:name => "order_holds_report", :time => "00 9 * * 1-5", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake notify:order_holds_report", :instance_name => "worker1"},
