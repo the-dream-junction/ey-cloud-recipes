@@ -1,5 +1,5 @@
 # uncomment to use a custom database.yml configuration
-# include_recipe "database_yml_custom"
+include_recipe "database_yml_custom"
 
 #execute "testing" do
 #  command %Q{
