@@ -1,6 +1,6 @@
 <%= @determine_adapter_code %>
 <%= @environment %>:
-  adapter:   <%= @dbtype %>
+  adapter:   'postgresql'
   database:  '<%= @dbname %>'
   username:  '<%= @dbuser %>'
   password:  '<%= @dbpass %>'
@@ -11,7 +11,7 @@
 <% @slaves.each_with_index do |slave,i| %>
 <%= i == 0 ? "slave" : "slave_#{i}" %>:
   slavename: <%= slave["name"].nil? ? "---" : "'"+slave["name"]+"'" %>
-  adapter:   <%= @dbtype %>
+  adapter:   'postgresql'
   database:  '<%= @dbname %>'
   username:  '<%= @dbuser %>'
   password:  '<%= @dbpass %>'
@@ -21,7 +21,7 @@
 <% end %>
 
 society6_<%= @environment %>:
-  adapter:   <%= @dbtype %>
+  adapter:   'postgresql'
   database:  'society6'
   username:  '<%= @dbuser %>'
   password:  '<%= @dbpass %>'
