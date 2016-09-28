@@ -3,6 +3,21 @@
 # Recipe:: default
 #
 
+if node[:name] == 'worker3'
+    cron "order_holds_report" do
+        action :delete
+    end
+end
+
+if node[:name] == 'worker4'
+    cron "dhl_manifests_dubow" do
+        action :delete
+    end
+    cron "dhl_manifests_timberline" do
+        action :delete
+    end
+end
+
 # Find all cron jobs specified in attributes/cron.rb where current node name matches instance_name
 crons = node[:custom_crons].find_all {|c| c[:instance_name] == "#{node[:name]}" }
 
