@@ -2,6 +2,7 @@
 # Set the utility instance name to install each cron job on via instance_name
 
 default[:custom_crons] = [{:name => "woocommerce_orders", :time => "40 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake import:woocommerce_orders", :instance_name => "worker3"},
+                          {:name => "zazzle_orders", :time => "15 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake import:zazzle_orders", :instance_name => "worker3"},
                           {:name => "zoho_orders", :time => "30 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake import:zoho_orders", :instance_name => "worker3"},
                           {:name => "deco_orders", :time => "35 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake import:deco_orders", :instance_name => "worker3"},
                           {:name => "maker_shopify_orders_monday", :time => "00 12,13,14,15,16,17,18 * * 1", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake import:maker_shopify_orders", :instance_name => "worker3"},
