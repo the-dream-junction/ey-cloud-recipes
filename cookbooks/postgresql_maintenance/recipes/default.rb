@@ -3,10 +3,10 @@
 if @node[:instance_role][/^db_master/]
   cron "manual_vacuumdb" do
     minute  '0'
-    hour    '0'
+    hour    '2'
     day     '*'
     month   '*'
-    weekday '0'
+    weekday '6'
     command '/usr/bin/vacuumdb -U postgres --all'
   end
   

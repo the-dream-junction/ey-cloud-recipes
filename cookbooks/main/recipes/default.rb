@@ -125,7 +125,7 @@ include_recipe "logrotate"
 #include_recipe "magento"
 
 # uncomment to include the Postgres Maintenance recipe
-#include_recipe "postgresql_maintenance"
+include_recipe "postgresql_maintenance"
 
 #enable Extension modules for a given Postgresql database
 # if ['solo','db_master', 'db_slave'].include?(node[:instance_role])
