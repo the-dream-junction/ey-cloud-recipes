@@ -54,4 +54,6 @@ default[:custom_crons] = [{:name => "zazzle_orders", :time => "*/15 * * * *", :c
                           {:name => "dhl_manifests", :time => "00 14 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'correlate:dhl_manifests[Santa Ana]'", :instance_name => "worker4"},
                           {:name => "cleanup_sessions_table", :time => "00 2 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake cleanup:cleanup_sessions_table", :instance_name => "worker6"},
                           {:name => "reprocess_designs", :time => "10 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake art_processing:reprocess_designs", :instance_name => "worker6"},
-                          {:name => "requeue_missing_artwork", :time => "20 12 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake art_processing:requeue_missing_artwork", :instance_name => "worker6"}]
+                          {:name => "requeue_missing_artwork", :time => "20 12 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake art_processing:requeue_missing_artwork", :instance_name => "worker6"},
+                          {:name => "background_job_monitor", :time => "15 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake service_monitoring:background_jobs", :instance_name => "worker6"}
+                        ]
