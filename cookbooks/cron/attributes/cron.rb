@@ -59,5 +59,6 @@ default[:custom_crons] = [{:name => "zazzle_orders", :time => "*/15 * * * *", :c
                           {:name => "requeue_missing_artwork", :time => "20 12 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake art_processing:requeue_missing_artwork", :instance_name => "worker6"},
                           {:name => "background_job_monitor", :time => "15 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake service_monitoring:background_jobs", :instance_name => "worker6"},
                           {:name => "daily_inventory_stats", :time => "1 0 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake daily_rollup:daily_inventory_stats", :instance_name => "worker6"},
-                          {:name => "monthly_inventory_stats", :time => "5 0 1 * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake monthly_rollup:monthly_inventory_stats", :instance_name => "worker6"}
+                          {:name => "monthly_inventory_stats", :time => "5 0 1 * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake monthly_rollup:monthly_inventory_stats", :instance_name => "worker6"},
+                          {:name => "ovaljet_ready_order_check", :time => "00 */1 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake update:ovaljet_ready_order_check", :instance_name => "worker6"}
                         ]
