@@ -24,6 +24,7 @@ default[:custom_crons] = [{:name => "zazzle_orders", :time => "*/15 * * * *", :c
                           {:name => "reset_trailing_sku_shipments", :time => "00 2 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake inventory:reset_trailing_sku_shipments", :instance_name => "worker5"},
                           {:name => "reset_negative_stock_counts", :time => "05 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake inventory:reset_negative_stock_counts", :instance_name => "worker5"},
                           {:name => "reset_open_jobs_count", :time => "10 3 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake inventory:reset_open_jobs_count", :instance_name => "worker5"},
+                          {:name => "production_hold_check", :time => "00,30 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake update:production_hold_check", :instance_name => "worker5"},
                           {:name => "intake_hold_check", :time => "15,45 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake update:intake_hold_check", :instance_name => "worker5"},
                           {:name => "stuck_job_check", :time => "00 */8 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake update:stuck_job_check", :instance_name => "worker5"},
                           {:name => "retrieve_fedex_tracking_status", :time => "30 1 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake correlate:retrieve_fedex_tracking_status", :instance_name => "worker5"},
@@ -69,5 +70,6 @@ default[:custom_crons] = [{:name => "zazzle_orders", :time => "*/15 * * * *", :c
                           {:name => "hebron_shift_1_efficiency_histories", :time => "00 11 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'update:update_shift_1_efficiency_histories[38]'", :instance_name => "worker_k1"},
                           {:name => "hebron_shift_1_efficiency", :time => "00 12 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'notify:shift_1_efficiency[38]'", :instance_name => "worker_k1"},
                           {:name => "santaana_dhl_manifests", :time => "00 14 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'correlate:dhl_manifests[Santa Ana]'", :instance_name => "worker4"},
+                          {:name => "santaana_osm_manifests", :time => "05 14 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'correlate:osm_manifests[Santa Ana]'", :instance_name => "worker4"},
                           {:name => "hebron_dhl_manifests", :time => "00 11 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'correlate:dhl_manifests[Kentucky]'", :instance_name => "worker_k1"}
                         ]
