@@ -72,5 +72,6 @@ default[:custom_crons] = [{:name => "zazzle_orders", :time => "*/15 * * * *", :c
                           {:name => "hebron_shift_1_efficiency", :time => "00 12 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'notify:shift_1_efficiency[38]'", :instance_name => "worker_k1"},
                           {:name => "santaana_dhl_manifests", :time => "00 14 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'correlate:dhl_manifests[Santa Ana]'", :instance_name => "worker4"},
                           {:name => "santaana_osm_manifests", :time => "05 14 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'correlate:osm_manifests[Santa Ana]'", :instance_name => "worker4"},
-                          {:name => "hebron_dhl_manifests", :time => "00 11 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'correlate:dhl_manifests[Kentucky]'", :instance_name => "worker_k1"}
+                          {:name => "hebron_dhl_manifests", :time => "00 11 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'correlate:dhl_manifests[Kentucky]'", :instance_name => "worker_k1"},
+                          {:name => "hebron_osm_manifests", :time => "05 11 * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'correlate:osm_manifests[Kentucky]'", :instance_name => "worker_k1"}
                         ]
