@@ -64,6 +64,7 @@ default[:custom_crons] = [
                           {:name => "hebron_packaged_not_shipped_report",         :time => "30 2 * * 1-5",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'order_issue_reporter:packaged_not_shipped_report[38]'",              :instance_name => "worker_k1"},
 
                           {:name => "order_attribute_refresh",                    :time => "00 */4 * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake order_updater:order_attribute_refresh",                               :instance_name => "worker6"},
+                          {:name => "update_shipped_jobs_state",                  :time => "00 */1 * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake order_updater:update_shipped_jobs_state",                             :instance_name => "worker6"},
 
                           {:name => "santaana_osm_manifests",                     :time => "05 14 * * *",   :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'osm_shipper:osm_manifests[Santa Ana]'",                              :instance_name => "worker4"},
                           {:name => "hebron_osm_manifests",                       :time => "05 11 * * *",   :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'osm_shipper:osm_manifests[Kentucky]'",                               :instance_name => "worker_k1"},
