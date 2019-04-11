@@ -19,12 +19,3 @@
   reconnect: true
 <%= @pool ? "  pool:      #@pool" : '' %>
 <% end %>
-
-society6_<%= @environment %>:
-  adapter:   'postgresql'
-  database:  'society6'
-  username:  '<%= @dbuser %>'
-  password:  '<%= @dbpass %>'
-  host:      '<%= @dbhost %>'
-  reconnect: true
-  
