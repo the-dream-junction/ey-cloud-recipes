@@ -89,5 +89,8 @@ default[:custom_crons] = [
                           {:name => "retrieve_ups_tracking_status",               :time => "00 3 * * *",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake ups_shipper:retrieve_ups_tracking_status",                            :instance_name => "worker5"},
 
                           {:name => "send_weekly_consignment_po_santa_ana",       :time => "01 0 * * 1",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'two40_portal:send_weekly_consignment_po[1]'",                        :instance_name => "worker_k1"},
-                          {:name => "send_weekly_consignment_po_kentucky",        :time => "01 21 * * 7",   :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'two40_portal:send_weekly_consignment_po[38]'",                       :instance_name => "worker_k1"}
+                          {:name => "send_weekly_consignment_po_kentucky",        :time => "01 21 * * 7",   :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'two40_portal:send_weekly_consignment_po[38]'",                       :instance_name => "worker_k1"},
+
+                          {:name => "clear_batches_after_shifts",                 :time => "*/10 * * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake inventory:clear_batches_after_shifts",                                :instance_name => "worker_k1"},
+                          {:name => "deactive_stock_labels",                      :time => "*/10 * * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake inventory:deactive_stock_labels",                                     :instance_name => "worker_k1"}
                         ]
