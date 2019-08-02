@@ -65,8 +65,6 @@ default[:custom_crons] = [
                           {:name => "order_attribute_refresh",                    :time => "00 */4 * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake order_updater:order_attribute_refresh",                               :instance_name => "worker6"},
                           {:name => "update_shipped_jobs_state",                  :time => "00 */1 * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake order_updater:update_shipped_jobs_state",                             :instance_name => "worker6"},
 
-                          {:name => "santaana_osm_manifests",                     :time => "05 14 * * *",   :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'osm_shipper:osm_manifests[Santa Ana]'",                              :instance_name => "worker4"},
-                          {:name => "hebron_osm_manifests",                       :time => "05 11 * * *",   :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'osm_shipper:osm_manifests[Kentucky]'",                               :instance_name => "worker_k1"},
                           {:name => "retrieve_osm_tracking_status",               :time => "30 3 * * *",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake osm_shipper:retrieve_osm_tracking_status",                            :instance_name => "worker5"},
 
                           {:name => "weekly_print_volume_report",                 :time => "10 5 * * 1",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake production_data_reporter:weekly_print_volume_report",                 :instance_name => "worker5"},
