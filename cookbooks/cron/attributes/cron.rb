@@ -90,5 +90,7 @@ default[:custom_crons] = [
                           {:name => "send_weekly_consignment_po_kentucky",        :time => "01 21 * * 7",   :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'two40_portal:send_weekly_consignment_po[38]'",                       :instance_name => "worker_k1"},
 
                           {:name => "clear_batches_after_shifts",                 :time => "*/10 * * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake inventory:clear_batches_after_shifts",                                :instance_name => "worker_k1"},
-                          {:name => "deactive_stock_labels",                      :time => "*/10 * * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake inventory:deactive_stock_labels",                                     :instance_name => "worker_k1"}
+                          {:name => "deactive_stock_labels",                      :time => "*/10 * * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake inventory:deactive_stock_labels",                                     :instance_name => "worker_k1"},
+                          {:name => "calculate_bin_quantity_coefficient",         :time => "00 2 * * *",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake inventory:calculate_bin_quantity_coefficient",                        :instance_name => "worker_k1"},
+                          {:name => "unassign_reassigned_bins",                   :time => "*/10 * * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake inventory:unassign_reassigned_bins",                                  :instance_name => "worker_k1"}
                         ]
