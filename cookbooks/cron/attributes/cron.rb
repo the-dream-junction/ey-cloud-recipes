@@ -25,6 +25,7 @@ default[:custom_crons] = [
 
                           {:name => "santaana_dhl_manifests",                     :time => "00 14 * * *",   :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'dhl_shipper:dhl_manifests[Santa Ana]'",                              :instance_name => "worker_k1"},
                           {:name => "hebron_dhl_manifests",                       :time => "00 11 * * *",   :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'dhl_shipper:dhl_manifests[Kentucky]'",                               :instance_name => "worker_k1"},
+                          {:name => "santaana_ep_manifests",                      :time => "05 14 * * *",   :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'easy_post_shipper:ep_manifests[Santa Ana]'",                         :instance_name => "worker_k1"},
 
                           {:name => "retrieve_fedex_tracking_status",             :time => "30 1 * * *",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake fedex_shipper:retrieve_fedex_tracking_status",                        :instance_name => "worker5"},
                           {:name => "retrieve_dhl_tracking_status",               :time => "00 2 * * *",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake dhl_shipper:retrieve_dhl_tracking_status",                            :instance_name => "worker5"},
