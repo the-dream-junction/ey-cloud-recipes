@@ -19,6 +19,7 @@ default[:custom_crons] = [
 
                           {:name => "cleanup_sessions_table",                     :time => "00 2 * * *",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake database_cleaner:cleanup_sessions_table",                             :instance_name => "worker6"},
                           {:name => "scrub_user_data",                            :time => "15 2 * * *",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake database_cleaner:scrub_user_data",                                    :instance_name => "worker6"},
+                          {:name => "delete_activity_data",                       :time => "30 2 * * *",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake database_cleaner:delete_activity_data",                               :instance_name => "worker6"},
 
                           {:name => "reprocess_designs",                          :time => "10 * * * *",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake design_processor:reprocess_designs",                                  :instance_name => "worker6"},
                           {:name => "requeue_missing_artwork",                    :time => "25 */1 * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake design_processor:requeue_missing_artwork",                            :instance_name => "worker6"},
