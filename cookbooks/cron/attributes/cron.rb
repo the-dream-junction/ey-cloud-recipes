@@ -25,9 +25,7 @@ default[:custom_crons] = [
                           {:name => "requeue_missing_artwork",                    :time => "25 */1 * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake design_processor:requeue_missing_artwork",                            :instance_name => "worker4"},
 
                           {:name => "santaana_dhl_manifests",                     :time => "00 14 * * *",   :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'dhl_shipper:dhl_manifests[Santa Ana]'",                              :instance_name => "worker4"},
-                          {:name => "hebron_dhl_manifests",                       :time => "00 11 * * *",   :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'dhl_shipper:dhl_manifests[Kentucky]'",                               :instance_name => "worker4"},
                           {:name => "santaana_ep_manifests",                      :time => "05 14 * * *",   :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'easy_post_shipper:ep_manifests[Santa Ana]'",                         :instance_name => "worker4"},
-                          {:name => "hebron_ep_manifests",                        :time => "05 11 * * *",   :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake 'easy_post_shipper:ep_manifests[Kentucky]'",                          :instance_name => "worker4"},
 
                           {:name => "retrieve_fedex_tracking_status",             :time => "30 1 * * *",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake fedex_shipper:retrieve_fedex_tracking_status",                        :instance_name => "worker4"},
                           {:name => "retrieve_dhl_tracking_status",               :time => "00 2 * * *",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake dhl_shipper:retrieve_dhl_tracking_status",                            :instance_name => "worker4"},
@@ -52,7 +50,6 @@ default[:custom_crons] = [
                           {:name => "production_hold_check",                      :time => "00 * * * *",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake order_hold_checker:production_hold_check",                            :instance_name => "worker7"},
                           {:name => "stuck_job_check",                            :time => "00 */8 * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake order_hold_checker:stuck_job_check",                                  :instance_name => "worker7"},
 
-                          {:name => "deco_orders",                                :time => "35 * * * *",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake order_importer:deco_orders",                                          :instance_name => "worker4"},
                           {:name => "shopify_orders",                             :time => "10,40 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake order_importer:shopify_orders",                                       :instance_name => "worker4"},
                           {:name => "shipstation_orders",                         :time => "00 */2 * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake order_importer:ship_station_orders",                                  :instance_name => "worker4"},
 
@@ -75,7 +72,6 @@ default[:custom_crons] = [
 
                           {:name => "background_job_monitor",                     :time => "15 * * * *",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake server_monitor:background_job_monitor",                               :instance_name => "worker4"},
 
-                          {:name => "deco_shipments",                             :time => "17,47 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake shipment_notifier:deco_shipments",                                    :instance_name => "worker4"},
                           {:name => "shopify_shipments",                          :time => "19,49 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake shipment_notifier:shopify_shipments",                                 :instance_name => "worker4"},
                           {:name => "ship_station_shipments",                     :time => "18,48 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake shipment_notifier:ship_station_shipments",                            :instance_name => "worker4"},
                           {:name => "shutterfly_ups_shipment_manifest",           :time => "45 15 * * *",   :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake shipment_notifier:shutterfly_ups_shipment_manifest",                  :instance_name => "worker4"},
