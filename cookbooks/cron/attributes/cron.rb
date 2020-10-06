@@ -48,7 +48,7 @@ default[:custom_crons] = [
 
                           {:name => "pending_job_check",                          :time => "00 * * * *",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake order_hold_checker:pending_job_check",                                :instance_name => "worker7"},
                           {:name => "intake_hold_check",                          :time => "45 */2 * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake order_hold_checker:intake_hold_check",                                :instance_name => "worker7"},
-                          {:name => "production_hold_check",                      :time => "15 */2 * * *",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake order_hold_checker:production_hold_check",                            :instance_name => "worker7"},
+                          {:name => "production_hold_check",                      :time => "15 * * * *",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake order_hold_checker:production_hold_check",                            :instance_name => "worker7"},
                           {:name => "stuck_job_check",                            :time => "00 */8 * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake order_hold_checker:stuck_job_check",                                  :instance_name => "worker7"},
 
                           {:name => "shopify_orders",                             :time => "10,40 * * * *", :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake order_importer:shopify_orders",                                       :instance_name => "worker4"},
