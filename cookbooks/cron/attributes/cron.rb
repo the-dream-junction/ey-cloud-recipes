@@ -87,6 +87,6 @@ default[:custom_crons] = [
                           {:name => "unassign_reassigned_bins",                   :time => "*/10 * * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake inventory:unassign_reassigned_bins",                                  :instance_name => "worker4"},
 
                           {:name => "weekly_printify_production_report",          :time => "00 4 * * 1",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake generate_printify_report:send_production_report[16]",                 :instance_name => "worker4"},
-                          {:name => "weekly_printify_shipment_report",            :time => "00 4 * * 1",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake generate_printify_report:send_shipment_report[16]",                   :instance_name => "worker4"},
+                          {:name => "weekly_printify_shipment_report",            :time => "00 4 * * 1",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake generate_printify_report:send_shipment_report[16]"                   :instance_name => "worker4"},
 
 ]
