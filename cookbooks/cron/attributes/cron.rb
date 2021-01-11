@@ -84,5 +84,9 @@ default[:custom_crons] = [
                           {:name => "clear_batches_after_shifts",                 :time => "*/10 * * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake inventory:clear_batches_after_shifts",                                :instance_name => "worker4"},
                           {:name => "deactive_stock_labels",                      :time => "*/10 * * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake inventory:deactive_stock_labels",                                     :instance_name => "worker4"},
                           {:name => "calculate_bin_quantity_coefficient",         :time => "00 2 * * *",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake inventory:calculate_bin_quantity_coefficient",                        :instance_name => "worker4"},
-                          {:name => "unassign_reassigned_bins",                   :time => "*/10 * * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake inventory:unassign_reassigned_bins",                                  :instance_name => "worker4"}
-                        ]
+                          {:name => "unassign_reassigned_bins",                   :time => "*/10 * * * *",  :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake inventory:unassign_reassigned_bins",                                  :instance_name => "worker4"},
+
+                          {:name => "weekly_printify_production_report",          :time => "00 4 * * 1",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake generate_printify_report:send_production_report[16]",                 :instance_name => "worker4"},
+                          {:name => "weekly_printify_shipment_report",            :time => "00 4 * * 1",    :command => "cd /data/dj/current && RAILS_ENV=production bundle exec rake generate_printify_report:send_shipment_report[16]"                   :instance_name => "worker4"},
+
+]
